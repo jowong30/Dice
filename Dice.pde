@@ -8,13 +8,15 @@ void draw()
 {
 	int counter = 0;
 	background(200,200,200);
-	for(int x= 120; x<1000; x=x+120){
-		Die bob = new Die(x,120);
-		counter = counter + Die.num;
-		Die.show();
+	for(int y = 120; y<600; y=y+120){
+		for(int x= 30; x<900; x=x+120){
+			Die bob = new Die(x,y);
+			bob.roll();
+			counter = counter + bob.num;
+			bob.show();
+		}
 	}
-
-	text("The total number of red dots are: " + counter);
+	text("The total number of red dots are: " + counter ,500,100);
 }
 void mousePressed()
 {
@@ -22,7 +24,7 @@ void mousePressed()
 }
 class Die //models one single dice cube
 {
-	int sizee, num, myX, myY;
+	int num, myX, myY;
 	
 
 	Die(int x, int y) 
@@ -36,12 +38,13 @@ class Die //models one single dice cube
 
 	void roll()
 	{
-		num = ((int)(Math.random()*6)+1);
+		num = (int)(Math.random()*6)+1;
 	}
 
 
 	void show()
 	{
+		fill(255);
 		rect(myX,myY,100,100);
 		if(num == 1){
 			fill(255,0,0);
@@ -65,26 +68,26 @@ class Die //models one single dice cube
 			fill(255,0,0);
 			noStroke();
 			ellipse(myX+20,myY+20,15,15);
-			ellipse(myX+80,myY+80,15,15);//
+			ellipse(myX+80,myY+80,15,15);
 			ellipse(myX+80,myY+20,15,15);
-			ellipse(myX+20,myY+80,15,15);//
+			ellipse(myX+20,myY+80,15,15);
 		}
 		if(num == 5){
 			fill(255,0,0);
 			noStroke();
 			ellipse(myX+20,myY+20,15,15);
-			ellipse(myX+80,myY+80,15,15);//
+			ellipse(myX+80,myY+80,15,15);
 			ellipse(myX+80,myY+20,15,15);
-			ellipse(myX+20,myY+80,15,15);//
+			ellipse(myX+20,myY+80,15,15);
 			ellipse(myX+50,myY+50,15,15);
 		}
 		if(num == 6){
 			fill(255,0,0);
 			noStroke();
 			ellipse(myX+20,myY+20,15,15);
-			ellipse(myX+80,myY+80,15,15);//
+			ellipse(myX+80,myY+80,15,15);
 			ellipse(myX+80,myY+20,15,15);
-			ellipse(myX+20,myY+80,15,15);//
+			ellipse(myX+20,myY+80,15,15);
 			ellipse(myX+20,myY+50,15,15);
 			ellipse(myX+80,myY+50,15,15);
 		}
